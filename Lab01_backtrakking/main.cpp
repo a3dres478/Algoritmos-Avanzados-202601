@@ -13,6 +13,9 @@ bool back1(int matriz[9][9], int solu[9], int numacti, int cantidaddeuni, int ca
     for (int i = 1; i <= cantidaddeuni; i++) {
         bool posible = true;
         for (int j = 0; j < cantidepara; j++) {
+            /*if (posible == false) {
+                break;
+            }*/
             int valormatri=matriz[numacti][j];
             int solum=solu[j];
             if (valormatri > 1) {
