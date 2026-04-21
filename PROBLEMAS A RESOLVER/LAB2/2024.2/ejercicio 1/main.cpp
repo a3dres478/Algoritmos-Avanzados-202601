@@ -23,6 +23,7 @@ void hijosdeputa(int *ciudades, int n) {
         DP[i] = DP[i - 1];
         for (int j = i; j >= 0; j--) {
             int numerodeciudades = ciudades[j];
+            int gg=i-j;
             if ((i - j) <= numerodeciudades) {
                 int borrador2 = DP[j];
                 int borrador3;
@@ -49,7 +50,7 @@ int main() {
 
 
 
-    hijosdeputa(ciudades2, n2);
+    hijosdeputa(ciudades, n);
 
     return 0;
 }
