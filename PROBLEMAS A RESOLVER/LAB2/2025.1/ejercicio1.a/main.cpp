@@ -14,14 +14,10 @@ int main() {
 
     for (int i=0;i<n;i++) {
         int maximo=999;
-        //          8                       6
         for (int j=maximodetiempo;j>=tareatiempos[i];j--) {
-
             int data1=tareatiempos[i];
-
             if (dp[j-tareatiempos[i]]+data1>dp[j]) {
                 dp[j]=dp[j-tareatiempos[i]]+data1;
-
             }
             cout<<"para J: "<<j<<" || e i "<<i<<" ---- ";
             for (int k=0;k<maximodetiempo;k++) {

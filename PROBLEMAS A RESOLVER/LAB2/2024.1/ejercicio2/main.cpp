@@ -67,9 +67,7 @@ int programaciondinamica(int robots,int arreglo[],int cantidades) {
 int main() {
     int Ntareas[6]={0,15,30,60,45,10};
     int Rrobots=2;
-programaciondinamica(Rrobots,Ntareas,6);
-
-
+//programaciondinamica(Rrobots,Ntareas,6);
 
 
     return 0;
