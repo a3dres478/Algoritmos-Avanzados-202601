@@ -53,12 +53,12 @@ void test2() {
 
     flujo[0] = 0;
 
-    for (int i = 1; i < robots; i++) {
+    for (int i = 1; i < N; i++) {
         flujo[i] = datos[i] + flujo[i - 1];
     }
 
     for (int i = 0; i <= robots; i++) {
-        for (int j = 0; j <= robots; j++) {
+        for (int j = 0; j <= N; j++) {
             dp[i][j] = 0;
         }
     }
@@ -169,18 +169,111 @@ void test5() {
 
 }
 
+void test6() {
+    int data[5]={7,2,5,5,10};
+    int n=5;
+
+    int suma=0;
+    for (int i = 0; i < n; i++) {
+        suma = suma + data[i];
+    }
+
+    bool dp[n+1][suma+1];
+
+    for (int i = 0; i <= n; i++) {
+        for (int j = 0; j <= suma; j++) {
+            dp[i][j] = false;
+        }
+    }
+    for (int i = 1; i <= n; i++) {
+        dp[i][0] = true;
+    }
+
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= suma; j++) {
+            if (data[i-1]<=j) {
+
+                dp[i][j] = dp[i-1][j] || dp[i-1][j-data[i-1]];
+            }else {
+                dp[i][j] = dp[i-1][j];
+            }
+        }
+    }
+
+    bool rpta=dp[n+1][24];
+    if (rpta) {
+        cout<<"RPTA"<<endl;
+    }else {
+        cout<<"NO RPTA"<<endl;
+    }
+
+}
+
+
+void test7() {
+    int matriz[6][6]={
+        /*0*/{ 0,3,5,0,0,0},
+        /*1*/{ 0,0,3,2,1,0},
+        /*2*/{ 0,0,0,2,3,0},
+        /*3*/{ 0,0,0,0,1,6},
+        /*4*/{ 0,0,0,0,0,3},
+        /*5*/{ 0,0,0,0,0,0}
+    };
+
+    int dp[6]={0};
+    for (int i=0; i<6; i++) {
+        dp[i] =999;
+    }
+    dp[0]=0;
+    int rpta[6]={};
+    for (int i = 0; i < 6; i++) {
+        rpta[i] = -1;
+    }
+
+
+    int minimo = 999;
+    for (int i = 1; i < 6; i++) {
+        minimo=999;
+        for (int j = 0; j < i; j++) {
+            int numeromatriz = matriz[j][i];
+            if (numeromatriz!=0) {
+                int data3=dp[j]+numeromatriz;
+                int data4=dp[i];
+                if (dp[j]+numeromatriz < dp[i]) {
+                    dp[i]=dp[j]+numeromatriz;
+                    rpta[i] = j;
+                }
+
+            }
+
+        }
+
+
+    }
+
+    cout<<dp[5]<<endl;
+    for (int i = 0; i < 6; i++) {
+        cout << rpta[i] << " ";
+    }
+
+
+}
 
 int main() {
     //pregunta 1 del 2024.1
     //test1();
     //pregunta 2 del 2024.1
-    //test2();
+    test2();
     //pregunta 1 del 2024.2
     //test3();
     //pregunta 2 del 2024.2
     //test4();
     //pergunta 1a del 2025.1
-    test5();
+    //test5();
+    //pregunta 1b del 2025.2
+    //test6();
+    //pregunta 2 del 2025.2
+    //test7();
 
     return 0;
 }
