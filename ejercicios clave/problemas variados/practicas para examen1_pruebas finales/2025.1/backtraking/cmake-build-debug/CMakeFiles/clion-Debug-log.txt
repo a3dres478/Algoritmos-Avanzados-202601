@@ -1,0 +1,1 @@
+CMakeLists.txt not found in C:\Users\andre\OneDrive\Documentos\GitHub\Universidad\Algoritmos_Avanzados\Algoritmos-Avanzados-202601\ejercicios clave\problemas variados\practicas para examen1_pruebas finales\2025.1\backtraking Select CMakeLists.txt
