@@ -27,6 +27,7 @@ bool esvalido(int matriz[9][9], int ruta[], int posicion, int etiqueta) {
         if (matriz[i][posicion] != 1 && matriz[i][posicion] != 0) {
             // Si el vecino ya tiene la misma etiqueta
             // entonces no es valido
+            int data=ruta[i];
             if (ruta[i] == etiqueta) {
                 return false;
             }
@@ -39,7 +40,7 @@ bool backtraking(int matriz[9][9], int N, int posicion,  int ruta[]) {
     if (posicion >= N) {
         for (int i = 0; i < 9; i++) {
             if (ruta[i] != -1) {
-                cout << ruta[i]+1 << " ";
+                cout << ruta[i] << " ";
             }
         }
         return true;
