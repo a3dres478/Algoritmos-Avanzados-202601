@@ -149,6 +149,5 @@ int main() {
     for (int i = 0; i < tamanioorden; i++) {
         ordenes[i].tiempo = ordenes[i].cantidadbotellas * 6;
     }
-    metaeuristica(ordenes, tamanioorden);
     return 0;
 }
